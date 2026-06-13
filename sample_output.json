@@ -1,0 +1,78 @@
+{
+  "full_interview_session": {
+    "endpoint": "POST /api/v1/interview/full",
+    "total_questions": 5,
+    "total_score": 38,
+    "max_possible_score": 50,
+    "percentage": 76.0,
+    "results": [
+      {
+        "question": "Explain REST APIs",
+        "transcript": "REST API is an architectural style that uses HTTP methods like GET POST PUT DELETE. It involves communication between a client and a server through endpoints.",
+        "score": 8,
+        "max_score": 10,
+        "keywords_matched": ["api", "http", "client", "server", "rest", "endpoint"],
+        "status": "Excellent"
+      },
+      {
+        "question": "What is Machine Learning?",
+        "transcript": "Machine learning is a subset of AI where we train a model using data so it can learn patterns and predict outcomes using algorithms.",
+        "score": 8,
+        "max_score": 10,
+        "keywords_matched": ["data", "model", "train", "predict", "algorithm", "learning"],
+        "status": "Excellent"
+      },
+      {
+        "question": "What is Python?",
+        "transcript": "Python is a high level programming language. It is interpreted and dynamically typed. It is simple to read and write.",
+        "score": 8,
+        "max_score": 10,
+        "keywords_matched": ["programming", "language", "interpreted", "simple", "dynamic"],
+        "status": "Excellent"
+      },
+      {
+        "question": "What is FastAPI?",
+        "transcript": "FastAPI is a modern web framework for building APIs with Python. It is very fast and supports async operations.",
+        "score": 7,
+        "max_score": 10,
+        "keywords_matched": ["framework", "api", "fast", "python", "web"],
+        "status": "Good"
+      },
+      {
+        "question": "Explain OOP Concepts",
+        "transcript": "OOP stands for Object Oriented Programming. It includes concepts like class, object, inheritance and encapsulation.",
+        "score": 7,
+        "max_score": 10,
+        "keywords_matched": ["class", "object", "inheritance", "encapsulation"],
+        "status": "Good"
+      }
+    ]
+  },
+
+  "edge_case_examples": {
+    "empty_recording": {
+      "question": "Explain REST APIs",
+      "transcript": "No speech detected within timeout.",
+      "score": 0,
+      "max_score": 10,
+      "keywords_matched": [],
+      "status": "Needs Improvement"
+    },
+    "stt_failure": {
+      "question": "What is Python?",
+      "transcript": "Could not understand the audio.",
+      "score": 0,
+      "max_score": 10,
+      "keywords_matched": [],
+      "status": "Needs Improvement"
+    },
+    "network_error": {
+      "question": "What is FastAPI?",
+      "transcript": "Speech recognition error: recognition request failed",
+      "score": 0,
+      "max_score": 10,
+      "keywords_matched": [],
+      "status": "Needs Improvement"
+    }
+  }
+}

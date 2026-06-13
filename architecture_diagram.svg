@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="620" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="620" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#000000">AI Voice Interview Agent — System Architecture</text>
+  <line x1="60" y1="48" x2="840" y2="48" stroke="#000000" stroke-width="1.5"/>
+
+  <!-- ── FLOW BOXES ── -->
+
+  <!-- Box 1: Ask Question -->
+  <rect x="60" y="80" width="160" height="80" rx="8" fill="#F0F0F0" stroke="#000000" stroke-width="2"/>
+  <text x="140" y="114" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">STEP 1</text>
+  <text x="140" y="132" text-anchor="middle" font-size="12" fill="#000000">Ask Question</text>
+  <text x="140" y="150" text-anchor="middle" font-size="10" fill="#444444">(Predefined list)</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="220" y1="120" x2="268" y2="120" stroke="#000000" stroke-width="2"/>
+  <polygon points="268,113 280,120 268,127" fill="#000000"/>
+
+  <!-- Box 2: Record Voice -->
+  <rect x="280" y="80" width="160" height="80" rx="8" fill="#F0F0F0" stroke="#000000" stroke-width="2"/>
+  <text x="360" y="114" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">STEP 2</text>
+  <text x="360" y="132" text-anchor="middle" font-size="12" fill="#000000">Record Voice</text>
+  <text x="360" y="150" text-anchor="middle" font-size="10" fill="#444444">(PyAudio / Microphone)</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="440" y1="120" x2="488" y2="120" stroke="#000000" stroke-width="2"/>
+  <polygon points="488,113 500,120 488,127" fill="#000000"/>
+
+  <!-- Box 3: STT -->
+  <rect x="500" y="80" width="160" height="80" rx="8" fill="#F0F0F0" stroke="#000000" stroke-width="2"/>
+  <text x="580" y="114" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">STEP 3</text>
+  <text x="580" y="132" text-anchor="middle" font-size="12" fill="#000000">Speech-to-Text</text>
+  <text x="580" y="150" text-anchor="middle" font-size="10" fill="#444444">(SpeechRecognition)</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="660" y1="120" x2="708" y2="120" stroke="#000000" stroke-width="2"/>
+  <polygon points="708,113 720,120 708,127" fill="#000000"/>
+
+  <!-- Box 4: Evaluate -->
+  <rect x="720" y="80" width="160" height="80" rx="8" fill="#F0F0F0" stroke="#000000" stroke-width="2"/>
+  <text x="800" y="114" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">STEP 4</text>
+  <text x="800" y="132" text-anchor="middle" font-size="12" fill="#000000">Evaluate Answer</text>
+  <text x="800" y="150" text-anchor="middle" font-size="10" fill="#444444">(Keyword Matching)</text>
+
+  <!-- Arrow 4 down to Score -->
+  <line x1="800" y1="160" x2="800" y2="198" stroke="#000000" stroke-width="2"/>
+  <polygon points="793,198 800,210 807,198" fill="#000000"/>
+
+  <!-- Box 5: Score -->
+  <rect x="720" y="210" width="160" height="80" rx="8" fill="#E8E8E8" stroke="#000000" stroke-width="2"/>
+  <text x="800" y="244" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">STEP 5</text>
+  <text x="800" y="262" text-anchor="middle" font-size="12" fill="#000000">Generate Score</text>
+  <text x="800" y="280" text-anchor="middle" font-size="10" fill="#444444">(0–10 per question)</text>
+
+  <!-- Arrow score left to loop check -->
+  <line x1="720" y1="250" x2="672" y2="250" stroke="#000000" stroke-width="2"/>
+  <polygon points="672,243 660,250 672,257" fill="#000000"/>
+
+  <!-- Box 6: More Questions? -->
+  <rect x="500" y="210" width="160" height="80" rx="8" fill="#DCDCDC" stroke="#000000" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="580" y="244" text-anchor="middle" font-size="12" font-weight="bold" fill="#000000">More Questions?</text>
+  <text x="580" y="262" text-anchor="middle" font-size="11" fill="#000000">Yes → Next Q</text>
+  <text x="580" y="278" text-anchor="middle" font-size="11" fill="#000000">No → Summary</text>
+
+  <!-- Arrow Yes: loop back up to Step 1 -->
+  <line x1="580" y1="210" x2="580" y2="180" stroke="#000000" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="580" y1="180" x2="140" y2="180" stroke="#000000" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="140" y1="180" x2="140" y2="162" stroke="#000000" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="133,162 140,150 147,162" fill="#000000"/>
+  <text x="360" y="196" text-anchor="middle" font-size="10" fill="#555555">Loop: repeat for all 5 questions</text>
+
+  <!-- Arrow No → Summary -->
+  <line x1="500" y1="250" x2="452" y2="250" stroke="#000000" stroke-width="2"/>
+  <polygon points="452,243 440,250 452,257" fill="#000000"/>
+
+  <!-- Box 7: Interview Summary -->
+  <rect x="280" y="210" width="160" height="80" rx="8" fill="#E0E0E0" stroke="#000000" stroke-width="2"/>
+  <text x="360" y="244" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">STEP 6</text>
+  <text x="360" y="262" text-anchor="middle" font-size="12" fill="#000000">Interview Summary</text>
+  <text x="360" y="280" text-anchor="middle" font-size="10" fill="#444444">(Total score + report)</text>
+
+  <!-- Arrow Summary → API Response -->
+  <line x1="360" y1="290" x2="360" y2="328" stroke="#000000" stroke-width="2"/>
+  <polygon points="353,328 360,340 367,328" fill="#000000"/>
+
+  <!-- Box 8: API Response -->
+  <rect x="280" y="340" width="160" height="80" rx="8" fill="#F0F0F0" stroke="#000000" stroke-width="2"/>
+  <text x="360" y="374" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">STEP 7</text>
+  <text x="360" y="392" text-anchor="middle" font-size="12" fill="#000000">API JSON Response</text>
+  <text x="360" y="410" text-anchor="middle" font-size="10" fill="#444444">(FastAPI endpoint)</text>
+
+  <!-- ── TECH STACK SECTION ── -->
+  <line x1="60" y1="460" x2="840" y2="460" stroke="#000000" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="450" y="480" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">Technology Stack</text>
+
+  <!-- Tech boxes row -->
+  <!-- Python -->
+  <rect x="60" y="495" width="120" height="50" rx="6" fill="#F5F5F5" stroke="#000000" stroke-width="1.5"/>
+  <text x="120" y="516" text-anchor="middle" font-size="11" font-weight="bold" fill="#000000">Python 3.x</text>
+  <text x="120" y="534" text-anchor="middle" font-size="10" fill="#555555">Core Language</text>
+
+  <!-- FastAPI -->
+  <rect x="200" y="495" width="120" height="50" rx="6" fill="#F5F5F5" stroke="#000000" stroke-width="1.5"/>
+  <text x="260" y="516" text-anchor="middle" font-size="11" font-weight="bold" fill="#000000">FastAPI</text>
+  <text x="260" y="534" text-anchor="middle" font-size="10" fill="#555555">API Framework</text>
+
+  <!-- SpeechRecognition -->
+  <rect x="340" y="495" width="140" height="50" rx="6" fill="#F5F5F5" stroke="#000000" stroke-width="1.5"/>
+  <text x="410" y="516" text-anchor="middle" font-size="11" font-weight="bold" fill="#000000">SpeechRecognition</text>
+  <text x="410" y="534" text-anchor="middle" font-size="10" fill="#555555">Voice → Text</text>
+
+  <!-- PyAudio -->
+  <rect x="500" y="495" width="120" height="50" rx="6" fill="#F5F5F5" stroke="#000000" stroke-width="1.5"/>
+  <text x="560" y="516" text-anchor="middle" font-size="11" font-weight="bold" fill="#000000">PyAudio</text>
+  <text x="560" y="534" text-anchor="middle" font-size="10" fill="#555555">Mic Recording</text>
+
+  <!-- Pydantic -->
+  <rect x="640" y="495" width="120" height="50" rx="6" fill="#F5F5F5" stroke="#000000" stroke-width="1.5"/>
+  <text x="700" y="516" text-anchor="middle" font-size="11" font-weight="bold" fill="#000000">Pydantic</text>
+  <text x="700" y="534" text-anchor="middle" font-size="10" fill="#555555">Data Validation</text>
+
+  <!-- Uvicorn -->
+  <rect x="780" y="495" width="100" height="50" rx="6" fill="#F5F5F5" stroke="#000000" stroke-width="1.5"/>
+  <text x="830" y="516" text-anchor="middle" font-size="11" font-weight="bold" fill="#000000">Uvicorn</text>
+  <text x="830" y="534" text-anchor="middle" font-size="10" fill="#555555">ASGI Server</text>
+
+  <!-- Footer -->
+  <line x1="60" y1="560" x2="840" y2="560" stroke="#000000" stroke-width="1"/>
+  <text x="450" y="580" text-anchor="middle" font-size="10" fill="#666666">AI Voice Interview Agent v1.0.0 | Intern: Ravulapalli Narendra | Captain: Shweta Sonar</text>
+  <text x="450" y="598" text-anchor="middle" font-size="10" fill="#666666">API: POST /api/v1/interview  |  POST /api/v1/interview/full  |  GET /api/v1/questions</text>
+
+</svg>

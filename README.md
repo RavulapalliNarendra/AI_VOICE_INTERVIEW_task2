@@ -69,33 +69,22 @@ ai_interview_agent/
 ---
 🏗️ Simple Architecture
 
-+------------------+
-|      User        |
-|  (Voice Input)   |
-+--------+---------+
-         |
-         v
-+------------------+
-|  Speech Service  |
-| (Speech-to-Text) |
-+--------+---------+
-         |
-         v
-+------------------+
-| FastAPI Backend  |
-+--------+---------+
-         |
-         v
-+------------------+
-| Evaluation Logic |
-| (Keyword Match)  |
-+--------+---------+
-         |
-         v
-+------------------+
-| Interview Result |
-| Score & Feedback |
-+------------------+
+User
+  │
+  ▼
+Microphone
+  │
+  ▼
+Speech-to-Text
+  │
+  ▼
+FastAPI API
+  │
+  ▼
+Evaluation Engine
+  │
+  ▼
+Score & Result
 
 Flow
 

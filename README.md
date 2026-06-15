@@ -69,21 +69,16 @@ ai_interview_agent/
 ---
 🏗️ Simple Architecture
 
-User
-  │
-  ▼
+ User
+  |
 Microphone
   │
-  ▼
 Speech-to-Text
-  │
-  ▼
+  |
 FastAPI API
   │
-  ▼
 Evaluation Engine
   │
-  ▼
 Score & Result
 
 Flow

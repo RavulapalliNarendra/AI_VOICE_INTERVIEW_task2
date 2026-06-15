@@ -66,7 +66,46 @@ ai_interview_agent/
 ├── README.md
 └── run.py
 ```
+---
+🏗️ Simple Architecture
 
++------------------+
+|      User        |
+|  (Voice Input)   |
++--------+---------+
+         |
+         v
++------------------+
+|  Speech Service  |
+| (Speech-to-Text) |
++--------+---------+
+         |
+         v
++------------------+
+| FastAPI Backend  |
++--------+---------+
+         |
+         v
++------------------+
+| Evaluation Logic |
+| (Keyword Match)  |
++--------+---------+
+         |
+         v
++------------------+
+| Interview Result |
+| Score & Feedback |
++------------------+
+
+Flow
+
+1. User speaks through microphone.
+2. Speech Service converts voice into text.
+3. FastAPI receives the transcript.
+4. Evaluation Service checks keywords.
+5. System calculates score and feedback.
+6. Result is returned to the user.
+---
 ---
 
 ## 🚀 Installation

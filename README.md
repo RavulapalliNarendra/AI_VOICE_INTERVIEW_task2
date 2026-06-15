@@ -68,18 +68,50 @@ ai_interview_agent/
 ```
 ---
 🏗️ Simple Architecture
-
-   A[Start] --> B[User Opens Application]
-    B --> C[Select Interview Question]
-    C --> D[Record Voice Input]
-    D --> E[Convert Speech to Text]
-    E --> F[FastAPI Backend]
-    F --> G[Evaluate Answer]
-    G --> H[Calculate Score]
-    H --> I[Generate Feedback]
-    I --> J[Display Result]
-    J --> K[End]
- 
+┌─────────────────────┐
+│      Candidate      │
+│   (Voice Input)     │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│     Microphone      │
+│  Audio Collection   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│  Speech Recognition │
+│   Audio → Text      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│    FastAPI Server   │
+│   API Processing    │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│  Question Module    │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Evaluation Engine   │
+│ Keyword Matching    │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Score & Feedback    │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Interview Results   │
+└─────────────────────┘
+   
 
 Flow
 

@@ -69,17 +69,60 @@ ai_interview_agent/
 ---
 🏗️ Simple Architecture
 
- User
-  |
-Microphone
-  │
-Speech-to-Text
-  |
-FastAPI API
-  │
-Evaluation Engine
-  │
-Score & Result
+ ┌───────────────┐
+ │     Start     │
+ └───────┬───────┘
+         │
+         ▼
+ ┌─────────────────┐
+ │ User Opens App  │
+ └───────┬─────────┘
+         │
+         ▼
+ ┌─────────────────┐
+ │ Select Question │
+ └───────┬─────────┘
+         │
+         ▼
+ ┌─────────────────┐
+ │ Record Voice    │
+ │ Through Mic     │
+ └───────┬─────────┘
+         │
+         ▼
+ ┌─────────────────┐
+ │ Speech-to-Text  │
+ │ Conversion      │
+ └───────┬─────────┘
+         │
+         ▼
+ ┌─────────────────┐
+ │ FastAPI Backend │
+ │ Receives Text   │
+ └───────┬─────────┘
+         │
+         ▼
+ ┌─────────────────┐
+ │ Evaluate Answer │
+ │ Keyword Matching│
+ └───────┬─────────┘
+         │
+         ▼
+ ┌─────────────────┐
+ │ Calculate Score │
+ │ & Feedback      │
+ └───────┬─────────┘
+         │
+         ▼
+ ┌─────────────────┐
+ │ Display Result  │
+ └───────┬─────────┘
+         │
+         ▼
+ ┌───────────────┐
+ │      End      │
+ └───────────────┘
+ 
 
 Flow
 

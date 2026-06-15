@@ -67,50 +67,20 @@ ai_interview_agent/
 └── run.py
 ```
 ---
-🏗️ Simple Architecture
-┌─────────────────────┐
-│      Candidate      │
-│   (Voice Input)     │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│     Microphone      │
-│  Audio Collection   │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Speech Recognition │
-│   Audio → Text      │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│    FastAPI Server   │
-│   API Processing    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Question Module    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Evaluation Engine   │
-│ Keyword Matching    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Score & Feedback    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Interview Results   │
-└─────────────────────┘
+ 🏛️ Architecture Overview
+ 
+    A[Candidate] --> B[Voice Input]
+    B --> C[Speech-to-Text Service]
+    C --> D[FastAPI Application]
+
+    D --> E[Question Bank]
+    D --> F[Evaluation Service]
+
+    E --> F
+    F --> G[Score Calculation]
+    G --> H[Performance Feedback]
+    H --> I[Interview Results]   
+
 
 Flow
 
